@@ -1,0 +1,239 @@
+/* Blog Page Styles */
+
+:root {
+    --accent-green: #28a745;
+    --dark-green: #1e7e34;
+    --light-green: #e9f7ef;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #eee;
+    --white: #fff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.blog-hero {
+    position: relative;
+    background-image: url('../assets/Serenity Agro Vet_store Heros.jfif');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0 80px;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+}
+
+.blog-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.blog-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.blog-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.blog-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+}
+
+@media (max-width: 992px) {
+    .blog-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Posts Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.post-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.post-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.1);
+}
+
+.post-category-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-green);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.post-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: var(--light-text);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.post-body h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.post-excerpt {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-more {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: var(--dark-green);
+}
+
+/* Sidebar */
+.sidebar-widget {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.sidebar-widget h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-green);
+    color: var(--text-color);
+}
+
+.category-links {
+    list-style: none;
+    padding: 0;
+}
+
+.category-links li {
+    margin-bottom: 12px;
+}
+
+.category-link {
+    display: block;
+    padding: 8px 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.category-link:hover,
+.category-link.active {
+    background: var(--light-green);
+    color: var(--dark-green);
+    font-weight: 600;
+}
+
+.newsletter-widget p {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.newsletter-widget input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.newsletter-widget .btn {
+    width: 100%;
+}
+
+/* Loading state */
+.loading-spinner {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: var(--light-text);
+    font-style: italic;
+}

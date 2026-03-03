@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Create Post - Serenity Agrovet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="../assets/Serenity_favicon.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Quill custom styling to match Tailwind */
+        .ql-toolbar.ql-snow {
+            border: 1px solid #e2e8f0;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            background-color: #f8fafc;
+            border-bottom: none;
+        }
+
+        .ql-container.ql-snow {
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            background-color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .ql-editor {
+            min-height: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-['Inter'] text-slate-800 antialiased h-screen flex overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full flex-shrink-0">
+        <div class="p-6 border-b border-slate-200">
+            <a href="../index.html" class="flex items-center gap-2">
+                <img src="../assets/Serenity_Logo.svg" alt="Serenity Logo" class="h-8 w-8">
+                <span class="font-bold text-lg text-slate-900">Serenity Admin</span>
+            </a>
+        </div>
+
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                    </path>
+                </svg>
+                Dashboard
+            </a>
+            <a href="blog.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-emerald-50 text-emerald-700 transition font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
+                    </path>
+                </svg>
+                Manage Blog
+            </a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-slate-50 transition font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+                Manage Products
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200">
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-slate-50 hover:text-red-600 transition font-medium">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                    </path>
+                </svg>
+                Exit Admin
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+        <!-- Top Header -->
+        <header class="bg-white border-b border-slate-200 h-20 flex items-center justify-between px-8 flex-shrink-0">
+            <div class="flex items-center gap-4">
+                <a href="blog.html"
+                    class="text-slate-400 hover:text-emerald-600 transition p-2 rounded-lg hover:bg-emerald-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                </a>
+                <h1 class="text-2xl font-bold text-slate-800">Create New Article</h1>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="flex-1 overflow-auto p-8">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+
+                <form id="postForm" class="space-y-6">
+
+                    <div class="space-y-4 md:space-y-0 md:flex gap-6">
+                        <!-- Title Field -->
+                        <div class="flex-1 space-y-2">
+                            <label for="title" class="block text-sm font-semibold text-slate-700">Post Title<span
+                                    class="text-red-500 ml-1">*</span></label>
+                            <input type="text" id="title" required
+                                class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"
+                                placeholder="e.g. Best Practices for Dairy Cattle...">
+                        </div>
+
+                        <!-- Slug Field -->
+                        <div class="flex-1 space-y-2">
+                            <label for="slug" class="block text-sm font-semibold text-slate-700">URL Friendly Slug<span
+                                    class="text-red-500 ml-1">*</span></label>
+                            <input type="text" id="slug" required
+                                class="w-full px-4 py-3 border border-slate-200 rounded-xl bg-slate-50 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-slate-500"
+                                placeholder="auto-generated-slug">
+                            <p class="text-xs text-slate-400">This will be the URL:
+                                /post.html?slug=<strong>your-slug</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 md:space-y-0 md:flex gap-6">
+                        <!-- Category Field -->
+                        <div class="md:w-1/3 space-y-2">
+                            <label for="category" class="block text-sm font-semibold text-slate-700">Category<span
+                                    class="text-red-500 ml-1">*</span></label>
+                            <select id="category" required
+                                class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition bg-white">
+                                <option value="">Select Category...</option>
+                                <!-- Categories populated via JS -->
+                            </select>
+                        </div>
+
+                        <!-- Image Upload Field -->
+                        <div class="md:w-2/3 space-y-2">
+                            <label for="image" class="block text-sm font-semibold text-slate-700">Featured Image</label>
+                            <div class="flex items-center gap-4">
+                                <label for="image"
+                                    class="cursor-pointer px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:bg-slate-100 transition flex items-center gap-2 font-medium">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    Choose Image
+                                </label>
+                                <input type="file" id="image" accept="image/*" class="hidden">
+                                <span id="file-name" class="text-sm text-slate-500 truncate max-w-xs">No file
+                                    chosen</span>
+                            </div>
+
+                            <!-- Image Preview Area -->
+                            <div id="image-preview-container"
+                                class="mt-4 hidden border border-slate-200 rounded-xl p-2 bg-slate-50 w-fit">
+                                <div class="relative group">
+                                    <img id="preview" src="" alt="Image Preview"
+                                        class="h-32 w-auto object-cover rounded-lg">
+                                    <button type="button" id="remove-image"
+                                        class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-md hover:bg-red-600 transition opacity-0 group-hover:opacity-100">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rich Text Editor -->
+                    <div class="space-y-2 pt-4">
+                        <label class="block text-sm font-semibold text-slate-700">Article Content<span
+                                class="text-red-500 ml-1">*</span></label>
+                        <div id="editor-container"></div>
+                    </div>
+
+                    <!-- Status Messages -->
+                    <div id="status" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+                    <!-- Submit Actions -->
+                    <div class="pt-6 border-t border-slate-100 flex justify-end gap-4">
+                        <a href="blog.html"
+                            class="px-6 py-3 font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-50 rounded-xl transition">
+                            Cancel
+                        </a>
+                        <button type="submit" id="submit-btn"
+                            class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 transition flex items-center gap-2">
+                            Publish Article
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="js/create-post.js"></script>
+</body>
+
+</html>

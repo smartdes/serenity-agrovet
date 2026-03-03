@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Serenity Agrovet Stores: Farm Success Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="icon" type="image/jpeg" href="assets/Serenity_favicon.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-top">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/Serenity_Logo.svg" alt="Serenity Agrovet Logo" class="logo-icon">
+                    <span class="logo-text">
+                        <span style="color: #2E7D32;">Serenity</span>
+                        <span style="color: #EF4444;">Agrovet</span>
+                        <span style="color: #2E7D32;">Stores</span>
+                    </span>
+                </a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="shop/index.html" class="btn-shop">Shop</a></li>
+                    <li><a href="#" class="active">Blog</a></li>
+                    <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <header class="blog-hero">
+        <div class="hero-overlay"></div>
+        <div class="container blog-hero-content">
+            <h1>Farm Success Blog</h1>
+            <p>Expert advice, industry updates, and guides to help your farm thrive.</p>
+        </div>
+    </header>
+
+    <!-- Blog Main Content -->
+    <main class="section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Posts Grid -->
+                <div class="blog-main">
+                    <div id="posts-container" class="posts-grid">
+                        <div class="loading-spinner">Loading expert insights...</div>
+                    </div>
+                    <!-- Load More Button -->
+                    <div id="load-more-container" class="mt-12 hidden">
+                        <button id="load-more-btn"
+                            class="w-full py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition shadow-lg">
+                            Load More Insights
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul id="categories-list" class="category-links">
+                            <li><a href="#" class="category-link active" data-category="all">All Posts</a></li>
+                            <!-- Categories will be injected here -->
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest farming tips delivered to your inbox.</p>
+                        <form id="newsletter-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+
+        <div class="footer-bottom">
+            <div class="container bottom-content">
+                <p class="copyright">&copy; 2026 Serenity Agrovet Stores. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/blog.js"></script>
+    <script>
+        // Hamburger menu functionality (copied from index.html for consistency)
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links li a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }));
+    </script>
+</body>
+
+</html>

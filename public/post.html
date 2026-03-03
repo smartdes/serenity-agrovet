@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Title - Serenity Agrovet Stores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="icon" type="image/jpeg" href="assets/Serenity_favicon.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .post-header {
+            margin-bottom: 2rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .post-full-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .related-products {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .related-products h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .product-card-mini {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+        }
+
+        .product-info-mini h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+        }
+
+        .product-info-mini p {
+            margin: 0;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-top">
+            <div class="container nav-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/Serenity_Logo.svg" alt="Serenity Agrovet Logo" class="logo-icon">
+                    <span class="logo-text">
+                        <span style="color: #2E7D32;">Serenity</span>
+                        <span style="color: #EF4444;">Agrovet</span>
+                        <span style="color: #2E7D32;">Stores</span>
+                    </span>
+                </a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="shop/index.html" class="btn-shop">Shop</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="index.html#contact" class="btn-contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Content Container -->
+    <main class="section">
+        <div class="container pb-16">
+            <a href="blog.html" class="back-to-blog pt-8">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.8333 10H4.16667" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M10 15.8333L4.16667 10L10 4.16667" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Back to Blog
+            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Main Article Content (2/3) -->
+                <div class="lg:col-span-2 space-y-8">
+                    <article id="post-content">
+                        <div class="animate-pulse space-y-8">
+                            <!-- Header Skeleton -->
+                            <div class="space-y-4">
+                                <div class="h-6 bg-slate-200 rounded w-24"></div>
+                                <div class="h-10 bg-slate-200 rounded w-3/4"></div>
+                                <div class="flex gap-4">
+                                    <div class="h-4 bg-slate-200 rounded w-32"></div>
+                                    <div class="h-4 bg-slate-200 rounded w-24"></div>
+                                </div>
+                            </div>
+
+                            <!-- Content Skeleton -->
+                            <div class="space-y-4 pt-8">
+                                <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+
+                                <div class="w-full h-80 bg-slate-200 rounded-2xl my-8"></div>
+
+                                <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                <div class="h-4 bg-slate-200 rounded w-4/6"></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div id="related-products-section" class="related-products" style="display: none;">
+                        <h3>Recommended Products</h3>
+                        <div id="products-list"></div>
+                    </div>
+                </div>
+
+                <!-- Sidebar (1/3) -->
+                <aside class="lg:col-span-1 space-y-8 lg:border-l lg:border-slate-100 lg:pl-8">
+                    <div class="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+                        <h3 class="text-xl font-bold mb-6 text-slate-800 border-b pb-4">Latest Articles</h3>
+                        <div id="latest-articles-list" class="space-y-6">
+                            <!-- Latest articles injected here via post.js -->
+                            <!-- Sidebar Skeleton -->
+                            <div class="animate-pulse flex gap-4">
+                                <div class="w-20 h-20 bg-slate-200 rounded-lg flex-shrink-0"></div>
+                                <div class="space-y-2 flex-1 pt-1">
+                                    <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                    <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+                                    <div class="h-3 bg-slate-200 rounded w-1/2 pt-2"></div>
+                                </div>
+                            </div>
+                            <div class="animate-pulse flex gap-4">
+                                <div class="w-20 h-20 bg-slate-200 rounded-lg flex-shrink-0"></div>
+                                <div class="space-y-2 flex-1 pt-1">
+                                    <div class="h-4 bg-slate-200 rounded w-full"></div>
+                                    <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+                                    <div class="h-3 bg-slate-200 rounded w-1/2 pt-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+
+        <div class="footer-bottom">
+            <div class="container bottom-content">
+                <p class="copyright">&copy; 2026 Serenity Agrovet Stores. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/post.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger?.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>
