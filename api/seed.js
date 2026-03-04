@@ -8,16 +8,28 @@ async function main() {
     console.log('Seeding database...');
 
     // 1. Create Categories
-    const poultryCare = await prisma.category.upsert({
-        where: { name: 'Poultry Care' },
+    const livestock = await prisma.category.upsert({
+        where: { name: 'Livestock & Pet Management' },
         update: {},
-        create: { name: 'Poultry Care' },
+        create: { name: 'Livestock & Pet Management' },
     });
 
-    const cropProtection = await prisma.category.upsert({
-        where: { name: 'Crop Protection' },
+    const soilHealth = await prisma.category.upsert({
+        where: { name: 'Soil Health & Crop Nutrition' },
         update: {},
-        create: { name: 'Crop Protection' },
+        create: { name: 'Soil Health & Crop Nutrition' },
+    });
+
+    const waterIrrigation = await prisma.category.upsert({
+        where: { name: 'Water & Irrigation Systems' },
+        update: {},
+        create: { name: 'Water & Irrigation Systems' },
+    });
+
+    const climateSmart = await prisma.category.upsert({
+        where: { name: 'Sustainable & Climate-Smart Farming' },
+        update: {},
+        create: { name: 'Sustainable & Climate-Smart Farming' },
     });
 
     console.log('Categories created.');
@@ -58,7 +70,7 @@ async function main() {
             slug: 'maximizing-poultry-productivity',
             content: 'The first four weeks of a chick\'s life are critical for their long-term health and productivity. Ensuring proper temperature, nutrition, and hygiene can make or break your flock\'s success. Use high-quality starter mash and monitor their water intake closely.',
             imageUrl: 'assets/Serenity Agro Vet_store Heros.jfif', // We can use the existing hero image for now
-            categoryId: poultryCare.id,
+            categoryId: livestock.id,
             products: {
                 create: [
                     { productId: product1.id }
@@ -77,7 +89,7 @@ async function main() {
             slug: 'natural-ways-to-protect-crops',
             content: 'Organic farming is gaining popularity in Juja Farm. Using neem oil and companion planting are effective ways to manage pests without harsh chemicals. Learn how to create a balanced ecosystem on your farm.',
             imageUrl: 'assets/Serenity Agro Vet_store Heros.jfif', // Reusing placeholder for now or can use another if available
-            categoryId: cropProtection.id,
+            categoryId: soilHealth.id,
             products: {
                 create: [
                     { productId: product2.id }
