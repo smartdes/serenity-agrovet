@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderPost(post) {
+        console.log('Rendering post:', post);
         // Update document title
         document.title = `${post.title} - Serenity Agrovet Stores`;
 
@@ -37,12 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
             year: 'numeric'
         });
 
-        // Format content with image after 2nd paragraph
-        let contentHtml = post.content;
+        // Ensure content is formatted as HTML if it's plain text
+        let contentHtml = post.content || '';
+        if (!contentHtml.includes('<p>') && !contentHtml.includes('</div>')) {
+            contentHtml = contentHtml.split('\n').filter(p => p.trim() !== '').map(p => `<p>${p}</p>`).join('');
+        }
 
-        // Find positions of paragraph tags
-        const paragraphs = contentHtml.split('</p>');
+        // Format content with image after 2nd paragraph
         let finalContent = '';
+        const paragraphs = contentHtml.split('</p>');
 
         if (post.imageUrl && paragraphs.length > 2) {
             // Re-join with image after second paragraph
@@ -50,24 +54,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const rest = paragraphs.slice(2).join('</p>');
             const imageHtml = `
                 <div class="post-injected-image" style="margin: 2rem 0;">
-                    <img src="${post.imageUrl}" alt="${post.title}" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; max-height: 500px;">
+                    <img src="${post.imageUrl.startsWith('http') ? post.imageUrl : '/' + post.imageUrl}" alt="${post.title}" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover; max-height: 500px;">
                 </div>
             `;
             finalContent = firstTwo + imageHtml + rest;
         } else if (post.imageUrl) {
             // Append image at end if content is too short
-            finalContent = contentHtml + `
+            const imageHtml = `
                 <div class="post-injected-image" style="margin: 2rem 0;">
-                    <img src="${post.imageUrl}" alt="${post.title}" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;">
+                    <img src="${post.imageUrl.startsWith('http') ? post.imageUrl : '/' + post.imageUrl}" alt="${post.title}" style="width: 100%; height: auto; border-radius: 12px; object-fit: cover;">
                 </div>
             `;
+            finalContent = contentHtml + imageHtml;
         } else {
             finalContent = contentHtml;
         }
 
+        if (!finalContent || finalContent === '<p></p>') {
+            finalContent = '<p class="text-slate-500 italic">No content available for this article.</p>';
+        }
+
         postContent.innerHTML = `
             <div class="post-header">
-                <span class="category-badge mb-4 inline-block">${post.category.name}</span>
+                <span class="category-badge mb-4 inline-block">${post.category ? post.category.name : 'Uncategorized'}</span>
                 <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">${post.title}</h1>
                 <div class="post-meta">
                     <span>${date}</span>
