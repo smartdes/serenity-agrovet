@@ -10,27 +10,11 @@ const PORT = process.env.PORT || 5000;
 app.use(express.static(path.join(__dirname, '../public')));
 
 const prisma = new PrismaClient();
-const multer = require('multer');
-const fs = require('fs');
-
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '../public/uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-// Multer storage configuration
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
-  }
+// Multer memory storage (better for Vercel serverless)
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 });
-
-const upload = multer({ storage: storage });
 
 app.use(cors());
 app.use(express.json());
@@ -115,7 +99,9 @@ app.post('/api/posts', upload.single('image'), async (req, res) => {
     let imageUrl = null;
 
     if (req.file) {
-      imageUrl = `uploads/${req.file.filename}`;
+      // Convert buffer to data URL (Base64)
+      const base64 = req.file.buffer.toString('base64');
+      imageUrl = `data:${req.file.mimetype};base64,${base64}`;
     }
 
     const post = await prisma.post.create({
@@ -164,7 +150,8 @@ app.put('/api/posts/:id', upload.single('image'), async (req, res) => {
       };
 
       if (req.file) {
-        updateData.imageUrl = `uploads/${req.file.filename}`;
+        const base64 = req.file.buffer.toString('base64');
+        updateData.imageUrl = `data:${req.file.mimetype};base64,${base64}`;
       }
 
       // Note: Updating products relation is complex and omitted for this basic edit implementation 
