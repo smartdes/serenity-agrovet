@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node api/index.js",
-    "postinstall": "prisma generate --schema=api/prisma/schema.prisma",
+    "postinstall": "prisma generate --schema=prisma/schema.prisma",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

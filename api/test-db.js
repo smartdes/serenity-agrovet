@@ -7,6 +7,9 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 async function testConnection() {
     const client = new Client({
         connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     });
 
     try {

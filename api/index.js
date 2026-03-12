@@ -2,6 +2,7 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const cors = require('cors');
 const path = require('path');
+const multer = require('multer');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const app = express();
@@ -53,8 +54,12 @@ app.get('/api/posts', async (req, res) => {
     });
     res.json(posts);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('API Error /api/posts:', error);
+    res.status(500).json({
+      error: 'Internal Server Error',
+      message: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
   }
 });
 
