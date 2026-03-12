@@ -124,7 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
             quill.clipboard.dangerouslyPasteHTML(0, post.content);
 
             if (post.imageUrl) {
-                previewImg.src = `../${post.imageUrl}`;
+                let imgUrl = post.imageUrl;
+                if (!imgUrl.startsWith('data:')) {
+                    imgUrl = `../${imgUrl}`;
+                }
+                previewImg.src = imgUrl;
                 previewContainer.classList.remove('hidden');
                 fileNameDisplay.textContent = 'Existing image loaded';
             }

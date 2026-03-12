@@ -41,7 +41,10 @@ function renderAdminTable(posts) {
             ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 border border-emerald-200"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Active</span>`
             : `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Inactive</span>`;
 
-        const imgUrl = post.imageUrl ? `../${post.imageUrl}` : '../assets/Serenity Agro Vet_store Heros.jfif';
+        let imgUrl = post.imageUrl || 'assets/Serenity Agro Vet_store Heros.jfif';
+        if (imgUrl && !imgUrl.startsWith('data:')) {
+            imgUrl = `../${imgUrl}`;
+        }
 
         return `
             <tr class="hover:bg-slate-50 transition">
